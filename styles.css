@@ -396,3 +396,21 @@ footer ul li .material-icons, footer ul li i {
 footer ul li .material-icons:hover, footer ul li i:hover {
     transform: scale(1.1); /* Efek zoom saat hover */
 }
+
+/* Tambahkan CSS berikut untuk membuat tombol tetap terlihat saat scroll */
+#addArticleBtn {
+    position: fixed; /* Mengatur posisi tombol agar tetap di tempat */
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    background-color: #007BFF; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none; /* Tanpa border */
+    padding: 10px 15px; /* Padding untuk tombol */
+    cursor: pointer; /* Menunjukkan bahwa ini adalah tombol yang dapat diklik */
+    z-index: 1000; /* Agar tombol berada di atas elemen lain */
+    border-radius: 5px; /* Sudut bulat */
+}
+
+#addArticleBtn:hover {
+    background-color: #c6391a; /* Warna saat hover */
+}
