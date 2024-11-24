@@ -17,41 +17,50 @@
                 <li><a href="landing.html">Landing Page</a></li>
             </ul>
         </nav>
+        
     </header>
-    <section id="blog">
-        <article class="post">
-            <h2>Meningkatkan Visibilitas Bisnis Melalui Digital Marketing</h2>
-            <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 24 November 2024</p>
-            <p>Di dunia yang semakin terhubung secara digital, penting bagi setiap bisnis untuk memiliki kehadiran online yang kuat. Dengan menerapkan strategi digital marketing yang tepat, Anda bisa meningkatkan visibilitas merek dan menarik lebih banyak pelanggan.</p>
-            <a href="/mbkm/artikel/artikel3.html" class="read-more">Baca Selengkapnya</a>
-        </article>
-    </section>
 
     <section id="blog">
         <article class="post">
-            <h2>Mengapa Digital Marketing Adalah Kunci Sukses Bisnis Modern</h2>
-            <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 24 November 2024</p>
-            <p>Dalam era digital saat ini, digital marketing telah menjadi komponen penting dalam strategi bisnis. Dengan pemanfaatan yang tepat, digital marketing dapat membantu bisnis Anda berkembang dan mencapai tujuan yang diinginkan.</p>
-            <a href="/mbkm/artikel/artikel4.html" class="read-more">Baca Selengkapnya</a>
+            <h3>Meningkatkan Visibilitas Bisnis Melalui Digital Marketing</h3>
+            <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 22 November 2024</p>
+            <p>Di dunia yang semakin terhubung secara digital, penting bagi setiap bisnis untuk memiliki kehadiran online yang kuat. Dengan menerapkan strategi digital marketing yang tepat, Anda bisa meningkatkan visibilitas merek dan menarik lebih banyak pelanggan.</p>
+            <a href="/mbkm/artikel/meningkatkan-visibilitas-bisnis.html" class="read-more">Baca Selengkapnya</a>
+            <button class="editBtn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="deleteBtn"><i class="fas fa-trash"></i> Hapus</button>
         </article>
     </section>
     <section id="blog">
         <article class="post">
-            <h2>Artikel 1: Memahami Digital Marketing</h2>
+            <h3>Mengapa Digital Marketing Adalah Kunci Sukses Bisnis Modern</h3>
+            <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 21 November 2024</p>
+            <p>Dalam era digital saat ini, digital marketing telah menjadi komponen penting dalam strategi bisnis. Dengan pemanfaatan yang tepat, digital marketing dapat membantu bisnis Anda berkembang dan mencapai tujuan yang diinginkan.</p>
+            <a href="/mbkm/artikel/mengapa-digital-marketing.html" class="read-more">Baca Selengkapnya</a>
+            <button class="editBtn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="deleteBtn"><i class="fas fa-trash"></i> Hapus</button>
+        </article>
+    </section>
+    <section id="blog">
+        <article class="post">
+            <h3>Memahami Digital Marketing</h3>
             <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 22 November 2024</p>
             <p>Digital marketing adalah pemasaran produk atau layanan menggunakan teknologi digital, terutama di internet. Dalam artikel ini, kita akan membahas berbagai strategi digital marketing yang dapat digunakan untuk meningkatkan visibilitas online.</p>
             <a href="/mbkm/artikel/artikel1.html" class="read-more">Baca Selengkapnya</a>
+            <button class="editBtn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="deleteBtn"><i class="fas fa-trash"></i> Hapus</button>
         </article>
     </section>
     <section id="blog">
         <article class="post">
-            <h2>Artikel 2: Pentingnya SEO dalam Bisnis</h2>
+            <h3>Pentingnya SEO dalam Bisnis</h3>
             <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> 21 November 2024</p>
             <p>SEO (Search Engine Optimization) adalah proses untuk meningkatkan kualitas dan kuantitas trafik website melalui hasil pencarian mesin pencari. Dalam artikel ini, kita akan menjelaskan mengapa SEO sangat penting untuk bisnis online.</p>
             <a href="/mbkm/artikel/artikel2.html" class="read-more">Baca Selengkapnya</a>
+            <button class="editBtn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="deleteBtn"><i class="fas fa-trash"></i> Hapus</button>
         </article>
     </section>
-
+    <button id="addArticleBtn"><i class="fas fa-plus"></i> Tambah Artikel</button>
     <footer>
         <p>Ikuti saya di:</p>
         <ul>
@@ -64,5 +73,67 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // JavaScript untuk menambahkan fungsi Edit dan Hapus
+        document.querySelectorAll('.editBtn').forEach(button => {
+            button.addEventListener('click', function() {
+                const article = this.parentElement;
+                const title = article.querySelector('h3').innerText;
+                const content = article.querySelector('p:nth-of-type(2)').innerText;
+                const newTitle = prompt("Edit Judul Artikel:", title);
+                const newContent = prompt("Edit Konten Artikel:", content);
+
+                if (newTitle !== null && newContent !== null) {
+                    article.querySelector('h3').innerText = newTitle;
+                    article.querySelector('p:nth-of-type(2)').innerText = newContent;
+                }
+            });
+        });
+
+        document.querySelectorAll('.deleteBtn').forEach(button => {
+            button.addEventListener('click', function() {
+                const article = this.parentElement;
+                if (confirm("Apakah Anda yakin ingin menghapus artikel ini?")) {
+                    article.remove();
+                }
+            });
+        });
+
+        document.getElementById('addArticleBtn').addEventListener('click', function() {
+            const title = prompt("Masukkan Judul Artikel:");
+            const content = prompt("Masukkan Konten Artikel:");
+            if (title && content) {
+                const newArticle = document.createElement('article');
+                newArticle.classList.add('post');
+                newArticle.innerHTML = `
+                    <h3>${title}</h3>
+                    <p><strong>Penulis:</strong> Deva Lubna Listya | <strong>Tanggal:</strong> ${new Date().toLocaleDateString()}</p>
+                    <p>${content}</p>
+                    <a href="#" class="read-more">Baca Selengkapnya</a>
+                    <button class="editBtn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="deleteBtn"><i class="fas fa-trash"></i> Hapus</button>
+                `;
+                document.querySelector('#blog').appendChild(newArticle);
+                
+                // Tambahkan event listener untuk tombol edit dan hapus artikel baru
+                newArticle.querySelector('.editBtn').addEventListener('click', function() {
+                    const article = this.parentElement;
+                    const newTitle = prompt("Edit Judul Artikel:", title);
+                    const newContent = prompt("Edit Konten Artikel:", content);
+                    if (newTitle !== null && newContent !== null) {
+                        article.querySelector('h3').innerText = newTitle;
+                        article.querySelector('p:nth-of-type(2)').innerText = newContent;
+                    }
+                });
+
+                newArticle.querySelector('.deleteBtn').addEventListener('click', function() {
+                    const article = this.parentElement;
+                    if (confirm("Apakah Anda yakin ingin menghapus artikel ini?")) {
+                        article.remove();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
