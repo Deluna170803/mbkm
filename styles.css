@@ -414,3 +414,12 @@ footer ul li .material-icons:hover, footer ul li i:hover {
 #addArticleBtn:hover {
     background-color: #c6391a; /* Warna saat hover */
 }
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Memindahkan tombol ke kanan */
+    margin-top: 10px; /* Jarak atas tombol */
+}
+.editBtn, .deleteBtn {
+    margin-left: 10px; /* Jarak antara tombol */
+}
